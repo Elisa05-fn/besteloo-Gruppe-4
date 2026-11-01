@@ -1,4 +1,4 @@
-from kunden import Kunde
+from kunden1 import Kunde
 
 class Geschäftskunde(Kunde):
     def __init__(self, firmenname:str,ust_id:str,zahlungsziel_tage : int =14):
@@ -6,13 +6,6 @@ class Geschäftskunde(Kunde):
         self.firmenname = firmenname
         self.ust_id = ust_id
         self.zahlungsziel_tage = zahlungsziel_tage
-
-    def ist_gultige_email(email:str) -> bool:
-        # Überprüfen, ob die email adresse gültig ist
-        if "@" in email and "." in email:
-            return True
-        else:
-            return False
 
     def begruessung(self) -> str:
         return f"Sehr geehrte Damen und Herren der Firma {self.firmenname},\n\nVielen Dank für Ihre Bestellung."
