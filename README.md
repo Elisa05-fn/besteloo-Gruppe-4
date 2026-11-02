@@ -1,18 +1,9 @@
-from kunden import Kunde
-
 class Geschäftskunde(Kunde):
-    def __init__(self, firmenname:str,ust_id:str,zahlungsziel_tage : int =14):
+     def__init__(self, kundennummer:int, name:str, email:str, firmenname:str,ust_id:str,zahlungsziel_tage : int =14):
         super().__init__(kundennummer, name, email)
         self.firmenname = firmenname
         self.ust_id = ust_id
         self.zahlungsziel_tage = zahlungsziel_tage
-
-    def ist_gultige_email(email:str) -> bool:
-        # Überprüfen, ob die email adresse gültig ist
-        if "@" in email and "." in email:
-            return True
-        else:
-            return False
 
     def begruessung(self) -> str:
         return f"Sehr geehrte Damen und Herren der Firma {self.firmenname},\n\nVielen Dank für Ihre Bestellung."
@@ -29,7 +20,7 @@ class Geschäftskunde(Kunde):
 
 
 class Vereinskunde(Kunde):
-    def __init__(self,vereinsname:str, registernummer:str, gemeinnuetzig:bool = True):
+    def__init__(self,kundennummer:int, name:str, email:str,vereinsname:str, registernummer:str, gemeinnuetzig:bool = True):
         super().__init__(kundennummer, name, email)
         self.vereinsname = vereinsname
         self.registernummer = registernummer
