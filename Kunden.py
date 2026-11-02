@@ -1,4 +1,4 @@
-from kunden1 import Kunde
+from Privat_Kunden import Kunde
 
 class Geschäftskunde(Kunde):
     def __init__(self, firmenname:str,ust_id:str,zahlungsziel_tage : int =14):
