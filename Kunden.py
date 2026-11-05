@@ -6,17 +6,17 @@ class Geschäftskunde(Kunde):
         self.firmenname = firmenname
         self.ust_id = ust_id
         self.zahlungsziel_tage = zahlungsziel_tage
-
+    @property
     def begruessung(self) -> str:
         return f"Sehr geehrte Damen und Herren der Firma {self.firmenname},\n\nVielen Dank für Ihre Bestellung."
-
+    @rabattsatz.setter
     def rabattsatz(self) -> float:
         # Berechnet den Rabattsatz für Geschäftskunden
         if self.zahlungsziel_tage <= 14:
             return 0.03
         else:
             raise ValueError("Zahlungsziel muss zwischen 1 und 14 Tagen liegen.")
-
+    @property
     def __str__(self) -> str:
         return f"Geschäftskunde: {self.firmenname}, UST-ID: { {self.ust_id}.lstrip().title().isdigit().startswith("DE")}, (Ansprechpartner: {self.name}.title()))"
 
@@ -27,10 +27,10 @@ class Vereinskunde(Kunde):
         self.vereinsname = vereinsname
         self.registernummer = registernummer
         self.gemeinnuetzig = gemeinnuetzig
-
+    @property
     def begruessung(self) -> str:
         return f"An den Vorstand des Vereins {self.vereinsname}"
-
+    @rabattsatz.setter
     def rabattsatz(self) -> float:
         # Berechnet den Rabattstz für Vereinskunden.
         if self.gemeinnuetzig:
